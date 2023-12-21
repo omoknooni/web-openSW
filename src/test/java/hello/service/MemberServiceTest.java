@@ -1,12 +1,9 @@
 package hello.service;
 
-import com.google.cloud.language.v1.ClassifyTextRequest;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.Sentiment;
 
-import hello.domain.Member;
-import hello.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +25,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 class MemberServiceTest {
 
     @Autowired
-    MemberService memberService;
+    ReciptService.MemberService memberService;
     @Autowired
     MemberRepository memberRepository;
     @Autowired

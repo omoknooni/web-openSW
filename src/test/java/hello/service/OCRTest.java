@@ -1,6 +1,5 @@
 package hello.service;
 
-import hello.domain.Member;
 import hello.domain.Recipt;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

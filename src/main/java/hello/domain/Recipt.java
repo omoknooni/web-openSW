@@ -3,7 +3,10 @@ package hello.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Getter
@@ -24,10 +27,6 @@ public class Recipt {
     private Boolean cash;
 
     private String phoneNumber;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
 
     /*//==연관관계 메서드==//
     public void setMember(Member member) {

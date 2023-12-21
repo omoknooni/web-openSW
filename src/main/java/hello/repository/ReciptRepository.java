@@ -29,10 +29,6 @@ public class ReciptRepository {
         return em.find(Recipt.class, id);
     }
 
-    public List<Recipt> findAllByMemberId(Long id) {
-        return em.createQuery("SELECT r FROM Recipt r WHERE r.member.id =:memberId", Recipt.class)
-                .setParameter("memberId", id)
-                .getResultList();
-    }
+
 
 }

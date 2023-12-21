@@ -23,8 +23,5 @@ public class ReciptService {
         return recipt.getId();
     }
 
-    public List<Recipt> findAll(Long id) {
-        return reciptRepository.findAllByMemberId(id);
-    }
 
 }

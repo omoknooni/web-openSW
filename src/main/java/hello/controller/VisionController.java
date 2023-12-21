@@ -1,10 +1,8 @@
 package hello.controller;
 
-import hello.domain.Member;
 import hello.domain.Recipt;
 import hello.service.ReciptService;
 import hello.service.SumCost;
-import hello.session.SessionConst;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,11 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 
@@ -60,6 +56,8 @@ public class VisionController {
 
         String uploadPath = null;
 
+
+
         if (!file.isEmpty()) {
             uploadPath = fileDir + file.getOriginalFilename();
             log.info("파일 저장 uploadPath={}", uploadPath);
@@ -73,12 +71,9 @@ public class VisionController {
         SumCost sumCost = new SumCost(textFromImage);
 
         // 영수증 DB저장
-        HttpSession session = request.getSession();
-        Member member = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
 
         Recipt recipt = new Recipt();
         recipt.setFilePath(uploadPath);
-        recipt.setMember(member);
         recipt.setSum(sumCost.getCost());
         recipt.setCash(sumCost.cash());
         recipt.setDate(sumCost.getDay());
